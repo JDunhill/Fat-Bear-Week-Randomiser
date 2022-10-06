@@ -4,7 +4,6 @@
 #include <algorithm>
 
 
-
 int main()
 {
     int randomBear = 0, totalBears = 0, totalPeople = 0;
