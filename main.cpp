@@ -4,6 +4,7 @@
 #include <algorithm>
 
 
+
 int main()
 {
     int randomBear = 0, totalBears = 0, totalPeople = 0;
@@ -48,12 +49,27 @@ int main()
        but only once unique allocations are made
     */
 
-    for (int l = 0; l < totalPeople; l++) {
+    // checking vector for preventing duplicates within round two of allocations, creating the most even distribution possible
+    
+    std::vector<std::string> checkingVect;
+    
+
+    while (personVect.size() > bearVect.size()) {
+      
+        // picks a random bear from the bear vector and adds it to the end of the vector, but only if not currently present in checkingVect
 
         randomBear = rand() % bearVect.size();
-        bearVect.push_back(bearVect[randomBear]);
-    }
+        
 
+        if (!(std::find(checkingVect.begin(), checkingVect.end(), bearVect[randomBear]) != checkingVect.end())) {
+        
+               bearVect.push_back(bearVect[randomBear]);
+               checkingVect.push_back(bearVect[randomBear]);
+            }  
+        
+        
+    }
+    
    
 
     for (int k = 0; k < totalPeople; k++) {
